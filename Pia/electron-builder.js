@@ -27,8 +27,8 @@ module.exports = {
     entitlements: './electron/entitlements.mac.plist',
     entitlementsInherit: './electron/entitlements.mac.plist',
     extendInfo: {
-      "NSMicrophoneUsageDescription": "Mic access",
-      "NSCameraUsageDescription": "Camera access"
+      "NSMicrophoneUsageDescription": "Mikrofon",
+      "NSCameraUsageDescription": "Kamera"
     },
     publish: [
       {
