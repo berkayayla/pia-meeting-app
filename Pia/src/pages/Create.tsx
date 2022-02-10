@@ -91,7 +91,7 @@ const Create = () => {
       })
         .then((res: any) => {
           Toast.show({
-            text1: 'Created: ' + roomTitle,
+            text1: roomTitle + ' isimli oda oluşturuldu.',
             visibilityTime: 1000,
           });
           console.log('promise data', res);
@@ -137,7 +137,7 @@ const Create = () => {
                 value={roomTitle}
                 onChangeText={(text) => onChangeRoomTitle(text)}
                 onSubmitEditing={() => createRoom()}
-                placeholder="Name your meeting"
+                placeholder="Toplantınıza bir isim verin."
               />
               <View style={{paddingVertical: 10}}>
                 <View style={style.checkboxHolder}>
@@ -148,8 +148,8 @@ const Create = () => {
                   <Text style={style.checkboxTitle}>
                     Restrict Host Controls{' '}
                     {!hostControlCheckbox
-                      ? '(Everyone is a Host)'
-                      : '(Separate host link)'}
+                      ? '(Herkesi yetkili yap.)'
+                      : '(Diğer katılımcıları misafir yap.)'}
                   </Text>
                 </View>
                 {$config.PSTN ? (
@@ -159,7 +159,7 @@ const Create = () => {
                       onValueChange={setPstnCheckbox}
                     />
                     <Text style={style.checkboxTitle}>
-                      Use PSTN (Join by dialing a number)
+                      GATŞ ile bağlan (Telefon ile bağlan)
                     </Text>
                   </View>
                 ) : (
@@ -169,12 +169,12 @@ const Create = () => {
               <PrimaryButton
                 disabled={roomTitle === '' || loading}
                 onPress={() => createRoom()}
-                text={loading ? 'Loading...' : 'Create Meeting'}
+                text={loading ? 'Yükleniyor...' : 'Toplantı Oluştur'}
               />
               <HorizontalRule />
               <SecondaryButton
                 onPress={() => history.push('/join')}
-                text={'Have a Meeting ID?'}
+                text={'Toplantı Kodunuz var mı?'}
               />
             </View>
           </View>
