@@ -88,7 +88,7 @@ const Precall = (props: any) => {
                 }}
                 onSubmitEditing={() => {}}
                 placeholder={
-                  queryComplete ? 'Display name*' : 'Getting name...'
+                  queryComplete ? 'Görünen İsim*' : 'İsminiz alınıyor...'
                 }
                 editable={queryComplete}
               />
@@ -96,7 +96,7 @@ const Precall = (props: any) => {
               <PrimaryButton
                 onPress={() => setCallActive(true)}
                 disabled={!queryComplete || username.trim() === ''}
-                text={queryComplete ? 'Join Room' : 'Loading...'}
+                text={queryComplete ? 'Odaya katılın' : 'Yükleniyor...'}
               />
             </View>
           ) : (
@@ -131,7 +131,7 @@ const Precall = (props: any) => {
               {/* <View style={{flex: 1}}> */}
               <Text
                 style={[style.subHeading, {color: $config.PRIMARY_FONT_COLOR}]}>
-                Select Input Device
+                Bir giriş aygıtı seçin.
               </Text>
               {/* </View> */}
               <View style={{height: 20}} />
@@ -165,7 +165,7 @@ const Precall = (props: any) => {
                 <PrimaryButton
                   onPress={() => setCallActive(true)}
                   disabled={!queryComplete || username.trim() === ''}
-                  text={queryComplete ? 'Join Room' : 'Loading...'}
+                  text={queryComplete ? 'Odaya katılın' : 'Yükleniyor...'}
                 />
               </View>
             </View>

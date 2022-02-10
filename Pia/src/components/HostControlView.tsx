@@ -20,18 +20,18 @@ const HostControlView = () => {
   const {primaryColor} = useContext(ColorContext);
   return (
     <>
-      <Text style={style.heading}>Host Controls</Text>
+      <Text style={style.heading}>Yetkili Kontrolleri</Text>
       <View>
         <View style={style.btnContainer}>
           <SecondaryButton
             onPress={() => sendControlMessage(controlMessageEnum.muteAudio)}
-            text={'Mute all audios'}
+            text={'Tüm sesleri kapat.'}
           />
         </View>
         <View style={style.btnContainer}>
           <SecondaryButton
             onPress={() => sendControlMessage(controlMessageEnum.muteVideo)}
-            text={'Mute all videos'}
+            text={'Tüm kameraları kapat.'}
           />
         </View>
       </View>

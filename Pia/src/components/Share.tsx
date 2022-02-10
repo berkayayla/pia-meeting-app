@@ -44,29 +44,29 @@ const Share = (props: any) => {
   };
 
   const copyToClipboard = () => {
-    Toast.show({text1: 'Copied to Clipboard', visibilityTime: 1000});
+    Toast.show({text1: 'Kopyalandı.', visibilityTime: 1000});
     let stringToCopy = '';
 
     $config.FRONTEND_ENDPOINT
       ? hostControlCheckbox
-        ? (stringToCopy += `Meeting - ${roomTitle}
-URL for Attendee: ${$config.FRONTEND_ENDPOINT}/${urlView}
-URL for Host: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
-        : (stringToCopy += `Meeting - ${roomTitle}
-Meeting URL: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
+        ? (stringToCopy += `Toplantı - ${roomTitle}
+Misafirler için URL: ${$config.FRONTEND_ENDPOINT}/${urlView}
+Yetkili için URL: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
+        : (stringToCopy += `Toplantı - ${roomTitle}
+Toplantı URL: ${$config.FRONTEND_ENDPOINT}/${urlHost}`)
       : platform === 'web'
       ? hostControlCheckbox
-        ? (stringToCopy += `Meeting - ${roomTitle}
-URL for Attendee: ${window.location.origin}/${urlView}
-URL for Host: ${window.location.origin}/${urlHost}`)
-        : (stringToCopy += `Meeting - ${roomTitle}
-Meeting URL: ${window.location.origin}/${urlHost}`)
+        ? (stringToCopy += `Toplantı - ${roomTitle}
+Misafirler için URL: ${window.location.origin}/${urlView}
+Yetkili için URL: ${window.location.origin}/${urlHost}`)
+        : (stringToCopy += `Toplantı - ${roomTitle}
+Toplantı URL: ${window.location.origin}/${urlHost}`)
       : hostControlCheckbox
-      ? (stringToCopy += `Meeting - ${roomTitle}
-Attendee Meeting ID: ${urlView}
-Host Meeting ID: ${urlHost}`)
-      : (stringToCopy += `Meeting - ${roomTitle}
-Meeting URL: ${urlHost}`);
+      ? (stringToCopy += `Toplantı - ${roomTitle}
+Misafirler için ID: ${urlView}
+Yetkili için ID: ${urlHost}`)
+      : (stringToCopy += `Toplantı - ${roomTitle}
+Toplantı URL: ${urlHost}`);
 
     pstn
       ? (stringToCopy += `PSTN Number: ${pstn.number}
@@ -76,30 +76,30 @@ PSTN Pin: ${pstn.dtmf}`)
   };
 
   const copyHostUrl = () => {
-    Toast.show({text1: 'Copied to Clipboard', visibilityTime: 1000});
+    Toast.show({text1: 'Kopyalandı.', visibilityTime: 1000});
     let stringToCopy = '';
     $config.FRONTEND_ENDPOINT
       ? (stringToCopy += `${$config.FRONTEND_ENDPOINT}/${urlHost}`)
       : platform === 'web'
       ? (stringToCopy += `${window.location.origin}/${urlHost}`)
-      : (stringToCopy += `Meeting ID: ${urlHost}`);
+      : (stringToCopy += `Toplantı IDsi: ${urlHost}`);
     Clipboard.setString(stringToCopy);
   };
 
   const copyAttendeeURL = () => {
-    Toast.show({text1: 'Copied to Clipboard', visibilityTime: 1000});
+    Toast.show({text1: 'Kopyalandı.', visibilityTime: 1000});
     let stringToCopy = '';
     $config.FRONTEND_ENDPOINT
       ? (stringToCopy += `${$config.FRONTEND_ENDPOINT}/${urlView}`)
       : platform === 'web'
       ? (stringToCopy += `${window.location.origin}/${urlView}`)
-      : (stringToCopy += `Meeting ID: ${urlView}`);
+      : (stringToCopy += `Toplantı IDsi: ${urlView}`);
     Clipboard.setString(stringToCopy);
   };
 
   const copyPstn = () => {
-    Toast.show({text1: 'Copied to Clipboard', visibilityTime: 1000});
-    let stringToCopy = `PSTN Number: ${pstn?.number} PSTN Pin: ${pstn?.dtmf}`;
+    Toast.show({text1: 'Kopyalandı.', visibilityTime: 1000});
+    let stringToCopy = `GATŞ Numarası: ${pstn?.number} GATŞ Şifresi: ${pstn?.dtmf}`;
     Clipboard.setString(stringToCopy);
   };
 
@@ -124,8 +124,8 @@ PSTN Pin: ${pstn.dtmf}`)
             <View style={{width: '80%'}}>
               <Text style={style.urlTitle}>
                 {$config.FRONTEND_ENDPOINT || platform === 'web'
-                  ? 'Attendee URL'
-                  : 'Attendee ID'}
+                  ? 'Misafir URL'
+                  : 'Misafir IDsi'}
               </Text>
               <View style={style.urlHolder}>
                 <Text
@@ -173,11 +173,11 @@ PSTN Pin: ${pstn.dtmf}`)
             <Text style={style.urlTitle}>
               {$config.FRONTEND_ENDPOINT || platform === 'web'
                 ? hostControlCheckbox
-                  ? 'Host URL'
-                  : 'Meeting URL'
+                  ? 'Yetkili URL'
+                  : 'Toplantı URL'
                 : hostControlCheckbox
-                ? 'Host ID'
-                : 'Meeting ID'}
+                ? 'Yetkili Idsi'
+                : 'Toplantı IDsi'}
             </Text>
             <View style={style.urlHolder}>
               <Text
@@ -268,12 +268,12 @@ PSTN Pin: ${pstn.dtmf}`)
         )}
         <PrimaryButton
           onPress={() => enterMeeting()}
-          text={'Start Meeting (as host)'}
+          text={'Toplantıyı başlat (yetkili olarak)'}
         />
         <View style={{height: 10}} />
         <SecondaryButton
           onPress={() => copyToClipboard()}
-          text={'Copy invite to clipboard'}
+          text={'Daveti kopyala'}
         />
       </View>
       {/* {dim[0] > dim[1] + 150 ? (

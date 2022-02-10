@@ -105,11 +105,11 @@ const Precall = (props: any) => {
         // disabled={!queryComplete}
         style={{marginBottom: 50}}>
         {/* <Text style={style.buttonText}> */}
-        {/* {queryComplete ? 'Join Room' : 'Loading...'} */}
+        {/* {queryComplete ? 'Odaya katılın' : 'Yükleniyor...'} */}
         {/* </Text> */}
         {/* </TouchableOpacity> */}
         <PrimaryButton
-          text={'Join Room'}
+          text={'Odaya katılın.'}
           disabled={!queryComplete || username.trim() === ''}
           onPress={() => setCallActive(true)}
         />

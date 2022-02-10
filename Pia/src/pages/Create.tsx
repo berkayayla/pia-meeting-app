@@ -146,7 +146,7 @@ const Create = () => {
                     onValueChange={setHostControlCheckbox}
                   />
                   <Text style={style.checkboxTitle}>
-                    Restrict Host Controls{' '}
+                    Yetkileri Kısıtla.{' '}
                     {!hostControlCheckbox
                       ? '(Herkesi yetkili yap.)'
                       : '(Diğer katılımcıları misafir yap.)'}

@@ -42,7 +42,7 @@ const ParticipantView = (props: {showText?: boolean}) => {
     variables: {passphrase: phrase},
   });
   const copyToClipboard = () => {
-    Toast.show({text1: 'Copied to Clipboard', visibilityTime: 1000});
+    Toast.show({text1: 'Kopyalandı.', visibilityTime: 1000});
     if (data && !loading) {
       let stringToCopy = '';
       if ($config.FRONTEND_ENDPOINT) {
@@ -78,7 +78,7 @@ const ParticipantView = (props: {showText?: boolean}) => {
       style={style.backButton}
       onPress={() => copyToClipboard()}
       name={'clipboard'}
-      btnText={props.showText ? 'Copy Meeting Invite' : ''}
+      btnText={props.showText ? 'Toplantı davetini kopyala' : ''}
       color={$config.PRIMARY_FONT_COLOR}
     />
   );
